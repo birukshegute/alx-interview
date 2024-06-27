@@ -3,6 +3,7 @@
 0x00. Pascal's Triangle
 """
 
+
 def pascal_triangle(n):
     """
     Returns a pascal triangle array
