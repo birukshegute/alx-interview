@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-0x00. Pascal's Triangle
+returns a list of lists of ints representing the Pascal’s triangle
 """
 
 
 def pascal_triangle(n):
     """
-    Returns a pascal triangle array
+    returns a list of lists of ints representing Pascal’s triangle
     """
     k = []
     if n <= 0:
