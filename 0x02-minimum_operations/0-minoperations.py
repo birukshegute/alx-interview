@@ -6,8 +6,7 @@ performs minOperations(n) function
 
 def minOperations(n):
     """
-    calculates the fewest number of operations needed
-    to result in exactly n H characters in the file.
+    calculates the fewest number of operations to result n H characters.
     """
     next = 'H'
     file = 'H'
