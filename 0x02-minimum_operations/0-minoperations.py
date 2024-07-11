@@ -11,6 +11,8 @@ def minOperations(n):
     next = 'H'
     file = 'H'
     operations = 0
+    if n<=1:
+        return 0
     while (len(file) < n):
         if n % len(file) == 0:
             operations += 2
@@ -19,6 +21,4 @@ def minOperations(n):
         else:
             operations += 1
             file += next
-    if len(file) != n:
-        return 0
     return operations
