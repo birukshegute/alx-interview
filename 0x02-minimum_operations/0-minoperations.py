@@ -4,14 +4,14 @@ performs minOperations(n) function
 """
 
 
-def minOperations(n):
+def minOperations(n: int) -> int:
     """
     calculates the fewest number of operations to result n H characters.
     """
-    next = 'H'
-    file = 'H'
-    operations = 0
-    if n<=1:
+    next: str = 'H'
+    file: str  = 'H'
+    operations: int = 0
+    if n <= 1:
         return 0
     while (len(file) < n):
         if n % len(file) == 0:
