@@ -9,7 +9,7 @@ def minOperations(n: int) -> int:
     calculates the fewest number of operations to result n H characters.
     """
     next: str = 'H'
-    file: str  = 'H'
+    file: str = 'H'
     operations: int = 0
     if n <= 1:
         return 0
