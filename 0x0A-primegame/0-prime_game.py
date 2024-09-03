@@ -4,54 +4,35 @@
 
 def isWinner(x, nums):
     """Function to handle the task"""
-    mariaWins = 0
+    if x <= 0 or nums is None:
+        return None
+    if x != len(nums):
+        return None
+
     benWins = 0
+    mariaWins = 0
 
-    for num in nums:
-        rounds = list(range(1, num + 1))
-        primes = primes_in_range(1, num)
+    a = [1 for x in range(sorted(nums)[-1] + 1)]
+    a[0], a[1] = 0, 0
+    for i in range(2, len(a)):
+        rm_multiples(a, i)
 
-        if not primes:
+    for i in nums:
+        if sum(a[0:i + 1]) % 2 == 0:
             benWins += 1
-            continue
-
-        isMariaTurns = True
-
-        while(True):
-            if not primes:
-                if isMariaTurns:
-                    benWins += 1
-                else:
-                    mariaWins += 1
-                break
-
-            smallestPrime = primes.pop(0)
-            rounds.remove(smallestPrime)
-
-            rounds = [x for x in rounds if x % smallestPrime != 0]
-
-            isMariaTurns = not isMariaTurns
-
+        else:
+            mariaWins += 1
+    if benWins > mariaWins:
+        return "Ben"
     if mariaWins > benWins:
         return "Maria"
-
-    if mariaWins < benWins:
-        return "Ben"
-
     return None
 
 
-def is_prime(n):
-    """Returns True if n is prime, else False."""
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
-def primes_in_range(start, end):
-    """Returns a list of prime numbers between start and end (inclusive)."""
-    primes = [n for n in range(start, end+1) if is_prime(n)]
-    return primes
+def rm_multiples(ls, x):
+    """Removes multiples of primes"""
+    for i in range(2, len(ls)):
+        try:
+            ls[i * x] = 0
+        except (ValueError, IndexError):
+            break
